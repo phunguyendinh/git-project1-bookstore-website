@@ -64,7 +64,7 @@
 /* CONTAINER */
 .container {
     width: 100%;
-    height: 2000px;
+    height: 3850px;
     margin-top: 90px;
 }
 
@@ -463,4 +463,110 @@
 .container_listcate_item .item8 span{
     position: relative;
     left: 46px;
+}
+
+/* Container list book */
+.headtext {
+    font-family: var(--font-nomal);
+    font-weight: bold;
+    font-size: 30px;
+    color: rgb(90, 90, 90);
+    margin-top: 80px;
+    margin-left: 100px;
+}
+.headline_listbook {
+    width: 90%;
+    height: 1px;
+    background-color: black;
+    margin-top: 10px;
+    margin-left: 90px;
+}
+.container_listbook_list1 {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+.featured_book_card1{
+    width: 330px;
+    height: 440px;
+    text-align: center;
+    padding: 5px;
+    margin: auto 5px;
+    background-color: white;
+    border-right: 1px solid black;
+    transition: box-shadow 0.5s ease; /* Chuyển đổi màu sắc chậm dần */
+    will-change: box-shadow; /* Tối ưu hóa hiệu ứng hover */
+    font-family: var(--font-nomal);
+}
+#temp1 {
+    border-right: 0px;
+}
+.featured_book_card1:hover{
+    box-shadow: 0 0 15px black;
+}
+.featured_book_card1 .featurde_book_img img{
+    width: 150px;
+    height: 200px;
+    margin-top: 15px;
+    transition: 0.5s;
+}
+.featured_book_card1 .featurde_book_img img:hover {
+    transform: scale(1.07);
+}
+.featured_book_card1 .featurde_book_tag h2{
+    margin: 12px;
+    
+    font-weight: bold;
+}
+
+.featured_book_card1 .featurde_book_tag .writer{
+    color: #919191;
+}
+
+.featured_book_card1 .featurde_book_tag .categories{
+    color: #089da1;
+    margin-top: 8px;
+}
+
+.featured_book_card1 .featurde_book_tag .book_price{
+    margin-top: 8px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.featured_book_card1 .featurde_book_tag .book_price sub{
+    font-weight: 100;
+    padding: 0 5px;
+}
+
+.featured_book_card1 .featurde_book_tag .f_btn{
+    padding: 8px 20px;
+    border: 2px solid #089da1;
+    text-decoration: none;
+    color: #000;
+    position: relative;
+    top: 15px;
+}
+
+/* Footer */
+.footer {
+    width: 100%;
+    height: 150px;
+    margin-top: 50px;
+    border-top: 1px solid rgb(150, 150, 150);
+}
+.footer_top {
+    width: 100%;
+    height: 50%;
+    background-color: white;
+    border-bottom: 1px solid rgb(150, 150, 150);
+    text-align: center;
+}
+.footer_top span {
+    color: #333;
+    font-family: var(--font-nomal);
+    font-weight: bold;
+    position: relative;
+    top: 23px;
+    font-size: 20px;
 }
