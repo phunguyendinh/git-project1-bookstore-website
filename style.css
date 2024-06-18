@@ -229,7 +229,6 @@
     transition: box-shadow 0.5s ease; /* Chuyển đổi màu sắc chậm dần */
     will-change: box-shadow; /* Tối ưu hóa hiệu ứng hover */
 }
-
 .featured_book_card:hover{
     box-shadow: 0 0 15px black;
 }
@@ -486,6 +485,10 @@
     display: flex;
     justify-content: center;
     margin-top: 10px;
+}
+.container_listbook_list1 a {
+    text-decoration: none;
+    color: inherit
 }
 .featured_book_card1{
     width: 330px;
