@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Assest/normalize.min.css">
+    <link rel="stylesheet" href="Assest/style_cart.css">
+    <link rel="stylesheet" href="Assest/base.css">
+    <script src = "JS/jquery-3.7.1.js"></script>
+    <script src = "JS/jquery.js"></script>
+    <title>Document</title>
+    <script>
+        $(document).ready(function(){
+            var content = $(".container").html(); 
+
+            var data = localStorage.getItem("order");
+            var order = JSON.parse(data) || [];
+
+            $(".header__navbar-item span").text("(" + order.length + ")");
+
+            for (let i = 0; i < order.length; i++) {
+                content += `<div class="order-item" style="display: flex; margin-top: 20px">
+                                <div class="order-photo"><img src="${order[i].photo}" /></div>
+                                <div class="order-name">${order[i].name}</div>
+                                <div id="list-button3">
+                                    <button id="bt8" onclick="handleNumberChange(this, 'decrease', ${i})">-</button>
+                                    <div id="number"><span>${order[i].number}</span></div>
+                                    <button id="bt9" onclick="handleNumberChange(this, 'increase', ${i})">+</button>
+                                </div>
+                                <div class="order-action"><img src="Image/trash.png" alt=""></div>                             
+                            </div>
+                            <div class="order-line"></div>
+                            `;
+            }
+            $(".container").html(content); 
+
+            $(".order-item").hover(function(){
+                $(this).css("background-color", "#DDD");
+            }, function(){
+                $(this).css("background-color", "#FFF");
+            });
+
+            $(".order-action").click(function() {
+                var index = $(this).closest(".order-item").index(); // Lấy chỉ số của phần tử cha .order-item
+                order.splice(index, 1); // Xóa phần tử tương ứng khỏi mảng order
+
+                // Xóa phần tử trong giao diện
+                $(this).closest(".order-item").next(".order-line").remove(); // Xóa phần tử .order-line
+                $(this).closest(".order-item").remove(); // Xóa phần tử .order-item
+
+                if (order.length === 0) {
+                    $(".header__navbar-item span").text("(0)");
+                    localStorage.removeItem("order"); // Xóa dữ liệu trong localStorage
+                } else {
+                    // Cập nhật lại localStorage và số lượng trong header
+                    localStorage.setItem("order", JSON.stringify(order));
+                    $(".header__navbar-item span").text("(" + order.length + ")");
+                }
+            });
+        });
+
+        function handleNumberChange(button, operation, index) {
+            var $numberElement = $(button).siblings("#number").find("span");
+            var currentNumber = parseInt($numberElement.text());
+
+            if (operation === "increase") {
+                currentNumber += 1;
+            } else if (operation === "decrease") {
+                if (currentNumber > 1) {
+                    currentNumber -= 1;
+                }
+            }
+
+            $numberElement.text(currentNumber);
+
+            var data = localStorage.getItem("order");
+            var order = JSON.parse(data) || [];
+            order[index].number = currentNumber;
+
+            localStorage.setItem("order", JSON.stringify(order));
+            $(".header__navbar-item span").text("(" + order.length + ")");
+        }
+    </script>
+</head>
+<body>
+    <div class="website">
+        
+        <!-- HEADER -->
+        <div class="header">
+            <nav class="header__navbar header__navbar-left">
+                <div class="header__navbar-logo-text">
+                    <span class="header__navbar-logo-txt1">TLBOOK<span class="header__navbar-logo-txt2">STORE</span></span>
+                </div>
+            </nav>
+            <nav class="header__navbar header__navbar-right">
+                <div class="header__navbar-item"><a href="cart.html">
+                    <img src="Image/cart.png" alt="">
+                    <span>(0)</span>
+                </a></div>
+                <div class="header__navbar-item"><a href="index.html">Home</a></div>
+                <div class="header__navbar-item"><a href="">Books</a></div>
+                <div class="header__navbar-item"><a href="">Reviews</a></div>
+                <div class="header__navbar-item"><a href="login.html">Login</a></div>
+            </nav>
+        </div>
+        <div class="container">
+            <div class = "container_item">
+                <div class="container_photo">Ảnh</div>
+                <div class="container_name">Tên sách</div>
+                <div class="container_nunmber">Số lượng</div>
+                
+            </div>
+        </div>
+        <div class="footer"></div>
+    </div>
+</body>
+</html>

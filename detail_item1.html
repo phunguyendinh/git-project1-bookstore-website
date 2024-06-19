@@ -3,11 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="normalize.min.css">
-    <link rel="stylesheet" href="style_detail.css">
-    <link rel="stylesheet" href="base.css">
-    <script src = "main.js"></script>
+    <link rel="stylesheet" href="Assest/normalize.min.css">
+    <link rel="stylesheet" href="Assest/style_detail.css">
+    <link rel="stylesheet" href="Assest/base.css">
+    <script src = "JS/main.js"></script>
+    <script src = "JS/jquery-3.7.1.js"></script>
+    <script src = "JS/jquery.js"></script>
     <title>Document</title>
+    <script>
+        $(document).ready(function () {
+            // CART DETAIL
+            var details = JSON.parse(localStorage.getItem("order")) || [];
+
+            function updateCartCount() {
+                var count = details.length;
+                $(".header__navbar-item span").text("(" + count + ")");
+            }
+
+            $(".container_detail_left_bottom .cart").click(function () {
+                var name = $(".title span").text().trim();
+                var photo = $(".container_detail_left_right img").attr("src").trim();
+                var number = $("#list-button3 #number").text().trim();
+
+                // Kiểm tra xem sản phẩm đã có trong giỏ hàng chưa
+                var existingItemIndex = details.findIndex(function (item) {
+                    return item.name === name;
+                });
+
+                if (existingItemIndex !== -1) {
+                    // Nếu sản phẩm đã có trong giỏ hàng, chỉ cộng thêm số lượng
+                    details[existingItemIndex].number += parseInt(number);
+                } else {
+                    // Nếu sản phẩm chưa có trong giỏ hàng, thêm sản phẩm mới
+                    var item = {
+                        name: name,
+                        photo: photo,
+                        number: parseInt(number),
+                    };
+                    details.push(item);
+                }
+
+                localStorage.setItem("order", JSON.stringify(details));
+                updateCartCount();
+            });
+
+            // Hiển thị số lượng sản phẩm trong giỏ hàng khi trang được tải lại
+            updateCartCount();
+        });
+    </script>
 </head>
 <body>
     <div class="website">
@@ -19,7 +62,11 @@
                 </div>
             </nav>
             <nav class="header__navbar header__navbar-right">
-                <div class="header__navbar-item"><a href="">Home</a></div>
+                <div class="header__navbar-item"><a href="cart.html">
+                    <img src="Image/cart.png" alt="">
+                    <span>(0)</span>
+                </a></div>
+                <div class="header__navbar-item"><a href="index.html">Home</a></div>
                 <div class="header__navbar-item"><a href="">Books</a></div>
                 <div class="header__navbar-item"><a href="">Reviews</a></div>
                 <div class="header__navbar-item"><a href="login.html">Login</a></div>

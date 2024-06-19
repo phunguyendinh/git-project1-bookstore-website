@@ -3,30 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="normalize.min.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="base.css">
-    <script src = "main.js"></script>
+    <link rel="stylesheet" href="Assest/normalize.min.css">
+    <link rel="stylesheet" href="Assest/style.css">
+    <link rel="stylesheet" href="Assest/base.css">
+    <script src = "JS/main.js"></script>
+    <script src = "JS/jquery-3.7.1.js"></script>
+    <script src = "JS/jquery.js"></script>
     <title>Document</title>
+    <script>
+        $(document).ready(function(){
+            data = localStorage.getItem("order");
+            order = JSON.parse(data);
+
+            $(".header__navbar-item span").text("("+ order.length+")");           
+        });
+    </script>
 </head>
 <body>
-    <div class="website">
+    <div class="website">   
         <!-- HEADER -->
-        <header class="header">
-            <nav class="header__navbar header__navbar-left">
-                <div class="header__navbar-logo-text">
-                    <span class="header__navbar-logo-txt1">TLBOOK<span class="header__navbar-logo-txt2">STORE</span></span>
+        <div class = "header-temp">  
+            <header class="header"> 
+                <nav class="header__navbar header__navbar-left">
+                    <div class="header__navbar-logo-text">
+                        <span class = "header__navbar-logo-txt1">TLBOOK<span class="header__navbar-logo-txt2">STORE</span></span>
+                    </div>
+                </nav>
+                <div class="header__navbar header__navbar-right">                
+                    <div class="header__navbar-item"><a href="cart.html">                       
+                        <img src="Image/cart.png" alt="">
+                        <span>(0)</span>
+                    </a></div>
+                    <div class="header__navbar-item"><a href="index.html">Home</a></div>
+                    <div class="header__navbar-item"><a href="">Books</a></div>
+                    <div class="header__navbar-item"><a href="">Reviews</a></div>
+                    <div class="header__navbar-item"><a href="login.html">Login</a></div>
                 </div>
-            </nav>
-            <nav class="header__navbar header__navbar-right">
-                <div class="header__navbar-item"><a href="">Home</a></div>
-                <div class="header__navbar-item"><a href="">Books</a></div>
-                <div class="header__navbar-item"><a href="">Reviews</a></div>
-                <div class="header__navbar-item"><a href="login.html">Login</a></div>
-            </nav>
-        </header>
+            </header>
+        </div>
         <!-- CONTAINER -->
-        <div class="container">
+        <div class="container">            
             <!-- Container advertising -->
             <div class="container_ad">
                 <div class="container_ad_left">
@@ -34,7 +50,7 @@
                     <a href="#" class="main_btn">Learn More</a>
                 </div>
                 <div class="container_ad_right">                   
-                    <img src="Image/image1.png" alt="Image 1">
+                    <img id="slideshow" src="Image/image1.png" alt="Slideshow Image">
                     <button id="next">></button>
                     <button id="prev"><</button>
                 </div>
@@ -60,12 +76,12 @@
                 <div class="container_sales_item">
                     <div class="featured_book_card">
                         <div class="featurde_book_img">
-                            <img src="Image/book_1.jpg">
+                            <img src="Image/harry.png">
                         </div>
                         <div class="featurde_book_tag">
-                            <h2>Featured Books</h2>
-                            <p class="writer">John Deo</p>
-                            <div class="categories">Thriller, Horror, Romance</div>
+                            <h2>Harry Potter 2</h2>
+                            <p class="writer">J.K.Rowling</p>
+                            <div class="categories">Phép thuật, Phiêu lưu</div>
                             <p class="book_price">$25.50<sub><del>$28.60</del></sub></p>
                             <a href="#" class="f_btn">Learn More</a>
                         </div>               
@@ -73,119 +89,119 @@
 
                     <div class="featured_book_card">
                         <div class="featurde_book_img">
-                            <img src="Image/book_2.jpg">
+                            <img src="Image/got.png">
                         </div>
                         <div class="featurde_book_tag">
-                            <h2>Featured Books</h2>
-                            <p class="writer">John Deo</p>
-                            <div class="categories">Thriller, Horror, Romance</div>
-                            <p class="book_price">$25.50<sub><del>$28.60</del></sub></p>
+                            <h2>Game Of Thrones</h2>
+                            <p class="writer">George R.R. Martin</p>
+                            <div class="categories">Hành động, chính trị</div>
+                            <p class="book_price">$21.50<sub><del>$28.60</del></sub></p>
+                            <a href="#" class="f_btn">Learn More</a>
+                        </div>                 
+                    </div>
+
+                    <div class="featured_book_card">
+                        <div class="featurde_book_img">
+                            <img src="Image/lor.png">
+                        </div>
+                        <div class="featurde_book_tag">
+                            <h2>Chúa nhẫn</h2>
+                            <p class="writer">J.R.R.Tolkien.</p>
+                            <div class="categories">Giả tưởng, Phiêu lưu</div>
+                            <p class="book_price">$18.50<sub><del>$28.60</del></sub></p>
+                            <a href="#" class="f_btn">Learn More</a>
+                        </div>                
+                    </div>
+
+                    <div class="featured_book_card">
+                        <div class="featurde_book_img">
+                            <img src="Image/doraemon.png">
+                        </div>
+                        <div class="featurde_book_tag">
+                            <h2>Doraemon Vol.1</h2>
+                            <p class="writer">Fujiko F. Fujio</p>
+                            <div class="categories">Manga, Trẻ em</div>
+                            <p class="book_price">$2.50<sub><del>$5.60</del></sub></p>
                             <a href="#" class="f_btn">Learn More</a>
                         </div>               
                     </div>
 
                     <div class="featured_book_card">
                         <div class="featurde_book_img">
-                            <img src="Image/book_3.jpg">
+                            <img src="Image/hobbit.png">
                         </div>
                         <div class="featurde_book_tag">
-                            <h2>Featured Books</h2>
-                            <p class="writer">John Deo</p>
-                            <div class="categories">Thriller, Horror, Romance</div>
-                            <p class="book_price">$25.50<sub><del>$28.60</del></sub></p>
-                            <a href="#" class="f_btn">Learn More</a>
-                        </div>               
-                    </div>
-
-                    <div class="featured_book_card">
-                        <div class="featurde_book_img">
-                            <img src="Image/book_4.jpg">
-                        </div>
-                        <div class="featurde_book_tag">
-                            <h2>Featured Books</h2>
-                            <p class="writer">John Deo</p>
-                            <div class="categories">Thriller, Horror, Romance</div>
-                            <p class="book_price">$25.50<sub><del>$28.60</del></sub></p>
-                            <a href="#" class="f_btn">Learn More</a>
-                        </div>               
-                    </div>
-
-                    <div class="featured_book_card">
-                        <div class="featurde_book_img">
-                            <img src="Image/book_5.jpg">
-                        </div>
-                        <div class="featurde_book_tag">
-                            <h2>Featured Books</h2>
-                            <p class="writer">John Deo</p>
-                            <div class="categories">Thriller, Horror, Romance</div>
-                            <p class="book_price">$25.50<sub><del>$28.60</del></sub></p>
+                            <h2>Người Hobbit</h2>
+                            <p class="writer">J.R.R.Tolkien</p>
+                            <div class="categories">Giả tưởng, Phiêu lưu</div>
+                            <p class="book_price">$15.50<sub><del>$28.60</del></sub></p>
                             <a href="#" class="f_btn">Learn More</a>
                         </div>               
                     </div>
                     
                     <div class="featured_book_card">
                         <div class="featurde_book_img">
-                            <img src="Image/book_6.jpg">
+                            <img src="Image/songmon.png">
                         </div>
                         <div class="featurde_book_tag">
-                            <h2>Featured Books</h2>
-                            <p class="writer">John Deo</p>
-                            <div class="categories">Thriller, Horror, Romance</div>
-                            <p class="book_price">$25.50<sub><del>$28.60</del></sub></p>
+                            <h2>Sống mòn</h2>
+                            <p class="writer">Nam Cao</p>
+                            <div class="categories">Tiểu thuyết</div>
+                            <p class="book_price">$10.50<sub><del>$28.60</del></sub></p>
                             <a href="#" class="f_btn">Learn More</a>
                         </div>               
                     </div>
 
                     <div class="featured_book_card">
                         <div class="featurde_book_img">
-                            <img src="Image/book_7.png">
+                            <img src="Image/sodo.png">
                         </div>
                         <div class="featurde_book_tag">
-                            <h2>Featured Books</h2>
-                            <p class="writer">John Deo</p>
-                            <div class="categories">Thriller, Horror, Romance</div>
-                            <p class="book_price">$25.50<sub><del>$28.60</del></sub></p>
+                            <h2>Số đỏ</h2>
+                            <p class="writer">Vũ Trọng Phụng</p>
+                            <div class="categories">Tiểu thuyết</div>
+                            <p class="book_price">$8.50<sub><del>$28.60</del></sub></p>
                             <a href="#" class="f_btn">Learn More</a>
                         </div>               
                     </div>
 
                     <div class="featured_book_card">
                         <div class="featurde_book_img">
-                            <img src="Image/book_8.png">
+                            <img src="Image/conan.png">
                         </div>
                         <div class="featurde_book_tag">
-                            <h2>Featured Books</h2>
-                            <p class="writer">John Deo</p>
-                            <div class="categories">Thriller, Horror, Romance</div>
-                            <p class="book_price">$25.50<sub><del>$28.60</del></sub></p>
+                            <h2>Conan 102</h2>
+                            <p class="writer">Gosho Aoyama</p>
+                            <div class="categories">Manga, Trinh thám</div>
+                            <p class="book_price">$1.50<sub><del>$2.60</del></sub></p>
+                            <a href="#" class="f_btn">Learn More</a>
+                        </div>              
+                    </div>
+
+                    <div class="featured_book_card">
+                        <div class="featurde_book_img">
+                            <img src="Image/dnt.png">
+                        </div>
+                        <div class="featurde_book_tag">
+                            <h2>Đắc nhân tâm</h2>
+                            <p class="writer">Dale Carnegie</p>
+                            <div class="categories">Văn học</div>
+                            <p class="book_price">$8.50<sub><del>$18.60</del></sub></p>
                             <a href="#" class="f_btn">Learn More</a>
                         </div>               
                     </div>
 
                     <div class="featured_book_card">
                         <div class="featurde_book_img">
-                            <img src="Image/book_9.jpg">
+                            <img src="Image/ngk.png">
                         </div>
                         <div class="featurde_book_tag">
-                            <h2>Featured Books</h2>
-                            <p class="writer">John Deo</p>
-                            <div class="categories">Thriller, Horror, Romance</div>
-                            <p class="book_price">$25.50<sub><del>$28.60</del></sub></p>
+                            <h2>Nhà giả kim</h2>
+                            <p class="writer">Paulo Coelho</p>
+                            <div class="categories">Văn học</div>
+                            <p class="book_price">$2.50<sub><del>$5.60</del></sub></p>
                             <a href="#" class="f_btn">Learn More</a>
-                        </div>               
-                    </div>
-
-                    <div class="featured_book_card">
-                        <div class="featurde_book_img">
-                            <img src="Image/book_10.png">
-                        </div>
-                        <div class="featurde_book_tag">
-                            <h2>Featured Books</h2>
-                            <p class="writer">John Deo</p>
-                            <div class="categories">Thriller, Horror, Romance</div>
-                            <p class="book_price">$25.50<sub><del>$28.60</del></sub></p>
-                            <a href="#" class="f_btn">Learn More</a>
-                        </div>               
+                        </div>                
                     </div>
 
                     <div class="featured_book_card">
@@ -193,12 +209,12 @@
                             <img src="Image/book_11.jpg">
                         </div>
                         <div class="featurde_book_tag">
-                            <h2>Featured Books</h2>
-                            <p class="writer">John Deo</p>
-                            <div class="categories">Thriller, Horror, Romance</div>
+                            <h2>Harry Potter 2</h2>
+                            <p class="writer">J.K.Rowling</p>
+                            <div class="categories">Phép thuật, Phiêu lưu</div>
                             <p class="book_price">$25.50<sub><del>$28.60</del></sub></p>
                             <a href="#" class="f_btn">Learn More</a>
-                        </div>               
+                        </div>             
                     </div>
 
                     <div class="featured_book_card">
@@ -206,12 +222,12 @@
                             <img src="Image/book_12.png">
                         </div>
                         <div class="featurde_book_tag">
-                            <h2>Featured Books</h2>
-                            <p class="writer">John Deo</p>
-                            <div class="categories">Thriller, Horror, Romance</div>
+                            <h2>Harry Potter 2</h2>
+                            <p class="writer">J.K.Rowling</p>
+                            <div class="categories">Phép thuật, Phiêu lưu</div>
                             <p class="book_price">$25.50<sub><del>$28.60</del></sub></p>
                             <a href="#" class="f_btn">Learn More</a>
-                        </div>               
+                        </div>              
                     </div>
 
                     <div class="featured_book_card">
@@ -219,12 +235,12 @@
                             <img src="Image/book_13.png">
                         </div>
                         <div class="featurde_book_tag">
-                            <h2>Featured Books</h2>
-                            <p class="writer">John Deo</p>
-                            <div class="categories">Thriller, Horror, Romance</div>
+                            <h2>Harry Potter 2</h2>
+                            <p class="writer">J.K.Rowling</p>
+                            <div class="categories">Phép thuật, Phiêu lưu</div>
                             <p class="book_price">$25.50<sub><del>$28.60</del></sub></p>
                             <a href="#" class="f_btn">Learn More</a>
-                        </div>               
+                        </div>              
                     </div>
 
                     <div class="featured_book_card">
@@ -232,12 +248,12 @@
                             <img src="Image/book_14.png">
                         </div>
                         <div class="featurde_book_tag">
-                            <h2>Featured Books</h2>
-                            <p class="writer">John Deo</p>
-                            <div class="categories">Thriller, Horror, Romance</div>
+                            <h2>Harry Potter 2</h2>
+                            <p class="writer">J.K.Rowling</p>
+                            <div class="categories">Phép thuật, Phiêu lưu</div>
                             <p class="book_price">$25.50<sub><del>$28.60</del></sub></p>
                             <a href="#" class="f_btn">Learn More</a>
-                        </div>               
+                        </div>              
                     </div>
 
                     <div class="featured_book_card">
@@ -245,12 +261,12 @@
                             <img src="Image/book_15.png">
                         </div>
                         <div class="featurde_book_tag">
-                            <h2>Featured Books</h2>
-                            <p class="writer">John Deo</p>
-                            <div class="categories">Thriller, Horror, Romance</div>
+                            <h2>Harry Potter 2</h2>
+                            <p class="writer">J.K.Rowling</p>
+                            <div class="categories">Phép thuật, Phiêu lưu</div>
                             <p class="book_price">$25.50<sub><del>$28.60</del></sub></p>
                             <a href="#" class="f_btn">Learn More</a>
-                        </div>               
+                        </div>              
                     </div>
                 </div>              
             </div>
@@ -311,62 +327,66 @@
                     <a href = "detail_item1.html">
                         <div class="featured_book_card1">
                             <div class="featurde_book_img">
-                                <img src="Image/book_1.jpg">
+                                <img src="Image/harry.png">
                             </div>
                             <div class="featurde_book_tag">
-                                <h2>Featured Books</h2>
-                                <p class="writer">John Deo</p>
-                                <div class="categories">Thriller, Horror, Romance</div>
+                                <h2>Harry Potter 2</h2>
+                                <p class="writer">J.K.Rowling</p>
+                                <div class="categories">Phép thuật, Phiêu lưu</div>
                                 <p class="book_price">$25.50<sub><del>$28.60</del></sub></p>
+                                <a href="#" class="f_btn">Learn More</a>
+                            </div>               
+                        </div>
+                    </a>
+                    <a href="detail_item2.html">
+                        <div class="featured_book_card1">
+                            <div class="featurde_book_img">
+                                <img src="Image/hobbit.png">
+                            </div>
+                            <div class="featurde_book_tag">
+                                <h2>Người Hobbit</h2>
+                                <p class="writer">J.R.R.Tolkien</p>
+                                <div class="categories">Giả tưởng, Phiêu lưu</div>
+                                <p class="book_price">$15.50<sub><del>$28.60</del></sub></p>
+                                <a href="#" class="f_btn">Learn More</a>
+                            </div>               
+                        </div>
+                    </a>
+                    <a href="detail_item3.html">
+                        <div class="featured_book_card1">
+                            <div class="featurde_book_img">
+                                <img src="Image/got.png">
+                            </div>
+                            <div class="featurde_book_tag">
+                                <h2>Game Of Thrones</h2>
+                                <p class="writer">George R.R. Martin</p>
+                                <div class="categories">Hành động, chính trị</div>
+                                <p class="book_price">$21.50<sub><del>$28.60</del></sub></p>
                                 <a href="#" class="f_btn">Learn More</a>
                             </div>               
                         </div>
                     </a>
                     <div class="featured_book_card1">
                         <div class="featurde_book_img">
-                            <img src="Image/book_2.jpg">
+                            <img src="Image/lor.png">
                         </div>
                         <div class="featurde_book_tag">
-                            <h2>Featured Books</h2>
-                            <p class="writer">John Deo</p>
-                            <div class="categories">Thriller, Horror, Romance</div>
-                            <p class="book_price">$25.50<sub><del>$28.60</del></sub></p>
-                            <a href="#" class="f_btn">Learn More</a>
-                        </div>               
-                    </div>
-                    <div class="featured_book_card1">
-                        <div class="featurde_book_img">
-                            <img src="Image/book_3.jpg">
-                        </div>
-                        <div class="featurde_book_tag">
-                            <h2>Featured Books</h2>
-                            <p class="writer">John Deo</p>
-                            <div class="categories">Thriller, Horror, Romance</div>
-                            <p class="book_price">$25.50<sub><del>$28.60</del></sub></p>
-                            <a href="#" class="f_btn">Learn More</a>
-                        </div>               
-                    </div>
-                    <div class="featured_book_card1">
-                        <div class="featurde_book_img">
-                            <img src="Image/book_4.jpg">
-                        </div>
-                        <div class="featurde_book_tag">
-                            <h2>Featured Books</h2>
-                            <p class="writer">John Deo</p>
-                            <div class="categories">Thriller, Horror, Romance</div>
-                            <p class="book_price">$25.50<sub><del>$28.60</del></sub></p>
+                            <h2>Chúa nhẫn</h2>
+                            <p class="writer">J.R.R.Tolkien.</p>
+                            <div class="categories">Giả tưởng, Phiêu lưu</div>
+                            <p class="book_price">$18.50<sub><del>$28.60</del></sub></p>
                             <a href="#" class="f_btn">Learn More</a>
                         </div>               
                     </div>
                     <div class="featured_book_card1" id = "temp1">
                         <div class="featurde_book_img">
-                            <img src="Image/book_5.jpg">
+                            <img src="Image/doraemon.png">
                         </div>
                         <div class="featurde_book_tag">
-                            <h2>Featured Books</h2>
-                            <p class="writer">John Deo</p>
-                            <div class="categories">Thriller, Horror, Romance</div>
-                            <p class="book_price">$25.50<sub><del>$28.60</del></sub></p>
+                            <h2>Doraemon Vol.1</h2>
+                            <p class="writer">Fujiko F. Fujio</p>
+                            <div class="categories">Manga, Trẻ em</div>
+                            <p class="book_price">$2.50<sub><del>$5.60</del></sub></p>
                             <a href="#" class="f_btn">Learn More</a>
                         </div>               
                     </div>
@@ -375,63 +395,65 @@
             <div class="headline_listbook"></div>
             <div class="container_listbook">
                 <div class = "container_listbook_list1">
+                    <a href = "detail_item1.html">
+                        <div class="featured_book_card1">
+                            <div class="featurde_book_img">
+                                <img src="Image/songmon.png">
+                            </div>
+                            <div class="featurde_book_tag">
+                                <h2>Sống mòn</h2>
+                                <p class="writer">Nam Cao</p>
+                                <div class="categories">Tiểu thuyết</div>
+                                <p class="book_price">$10.50<sub><del>$28.60</del></sub></p>
+                                <a href="#" class="f_btn">Learn More</a>
+                            </div>               
+                        </div>
+                    </a>
                     <div class="featured_book_card1">
                         <div class="featurde_book_img">
-                            <img src="Image/book_1.jpg">
+                            <img src="Image/sodo.png">
                         </div>
                         <div class="featurde_book_tag">
-                            <h2>Featured Books</h2>
-                            <p class="writer">John Deo</p>
-                            <div class="categories">Thriller, Horror, Romance</div>
-                            <p class="book_price">$25.50<sub><del>$28.60</del></sub></p>
+                            <h2>Số đỏ</h2>
+                            <p class="writer">Vũ Trọng Phụng</p>
+                            <div class="categories">Tiểu thuyết</div>
+                            <p class="book_price">$8.50<sub><del>$28.60</del></sub></p>
                             <a href="#" class="f_btn">Learn More</a>
                         </div>               
                     </div>
                     <div class="featured_book_card1">
                         <div class="featurde_book_img">
-                            <img src="Image/book_2.jpg">
+                            <img src="Image/conan.png">
                         </div>
                         <div class="featurde_book_tag">
-                            <h2>Featured Books</h2>
-                            <p class="writer">John Deo</p>
-                            <div class="categories">Thriller, Horror, Romance</div>
-                            <p class="book_price">$25.50<sub><del>$28.60</del></sub></p>
+                            <h2>Conan 102</h2>
+                            <p class="writer">Gosho Aoyama</p>
+                            <div class="categories">Manga, Trinh thám</div>
+                            <p class="book_price">$1.50<sub><del>$2.60</del></sub></p>
                             <a href="#" class="f_btn">Learn More</a>
                         </div>               
                     </div>
                     <div class="featured_book_card1">
                         <div class="featurde_book_img">
-                            <img src="Image/book_3.jpg">
+                            <img src="Image/dnt.png">
                         </div>
                         <div class="featurde_book_tag">
-                            <h2>Featured Books</h2>
-                            <p class="writer">John Deo</p>
-                            <div class="categories">Thriller, Horror, Romance</div>
-                            <p class="book_price">$25.50<sub><del>$28.60</del></sub></p>
-                            <a href="#" class="f_btn">Learn More</a>
-                        </div>               
-                    </div>
-                    <div class="featured_book_card1">
-                        <div class="featurde_book_img">
-                            <img src="Image/book_4.jpg">
-                        </div>
-                        <div class="featurde_book_tag">
-                            <h2>Featured Books</h2>
-                            <p class="writer">John Deo</p>
-                            <div class="categories">Thriller, Horror, Romance</div>
-                            <p class="book_price">$25.50<sub><del>$28.60</del></sub></p>
+                            <h2>Đắc nhân tâm</h2>
+                            <p class="writer">Dale Carnegie</p>
+                            <div class="categories">Văn học</div>
+                            <p class="book_price">$8.50<sub><del>$18.60</del></sub></p>
                             <a href="#" class="f_btn">Learn More</a>
                         </div>               
                     </div>
                     <div class="featured_book_card1" id = "temp1">
                         <div class="featurde_book_img">
-                            <img src="Image/book_5.jpg">
+                            <img src="Image/ngk.png">
                         </div>
                         <div class="featurde_book_tag">
-                            <h2>Featured Books</h2>
-                            <p class="writer">John Deo</p>
-                            <div class="categories">Thriller, Horror, Romance</div>
-                            <p class="book_price">$25.50<sub><del>$28.60</del></sub></p>
+                            <h2>Nhà giả kim</h2>
+                            <p class="writer">Paulo Coelho</p>
+                            <div class="categories">Văn học</div>
+                            <p class="book_price">$2.50<sub><del>$5.60</del></sub></p>
                             <a href="#" class="f_btn">Learn More</a>
                         </div>               
                     </div>
@@ -439,63 +461,65 @@
             <div class="headline_listbook"></div>
             <div class="container_listbook">
                 <div class = "container_listbook_list1">
+                    <a href = "detail_item1.html">
+                        <div class="featured_book_card1">
+                            <div class="featurde_book_img">
+                                <img src="Image/harry.png">
+                            </div>
+                            <div class="featurde_book_tag">
+                                <h2>Harry Potter 2</h2>
+                                <p class="writer">J.K.Rowling</p>
+                                <div class="categories">Phép thuật, Phiêu lưu</div>
+                                <p class="book_price">$25.50<sub><del>$28.60</del></sub></p>
+                                <a href="#" class="f_btn">Learn More</a>
+                            </div>               
+                        </div>
+                    </a>
                     <div class="featured_book_card1">
                         <div class="featurde_book_img">
-                            <img src="Image/book_1.jpg">
+                            <img src="Image/hobbit.png">
                         </div>
                         <div class="featurde_book_tag">
-                            <h2>Featured Books</h2>
-                            <p class="writer">John Deo</p>
-                            <div class="categories">Thriller, Horror, Romance</div>
-                            <p class="book_price">$25.50<sub><del>$28.60</del></sub></p>
+                            <h2>Người Hobbit</h2>
+                            <p class="writer">J.R.R.Tolkien</p>
+                            <div class="categories">Giả tưởng, Phiêu lưu</div>
+                            <p class="book_price">$15.50<sub><del>$28.60</del></sub></p>
                             <a href="#" class="f_btn">Learn More</a>
                         </div>               
                     </div>
                     <div class="featured_book_card1">
                         <div class="featurde_book_img">
-                            <img src="Image/book_2.jpg">
+                            <img src="Image/got.png">
                         </div>
                         <div class="featurde_book_tag">
-                            <h2>Featured Books</h2>
-                            <p class="writer">John Deo</p>
-                            <div class="categories">Thriller, Horror, Romance</div>
-                            <p class="book_price">$25.50<sub><del>$28.60</del></sub></p>
+                            <h2>Game Of Thrones</h2>
+                            <p class="writer">George R.R. Martin</p>
+                            <div class="categories">Hành động, chính trị</div>
+                            <p class="book_price">$21.50<sub><del>$28.60</del></sub></p>
                             <a href="#" class="f_btn">Learn More</a>
                         </div>               
                     </div>
                     <div class="featured_book_card1">
                         <div class="featurde_book_img">
-                            <img src="Image/book_3.jpg">
+                            <img src="Image/lor.png">
                         </div>
                         <div class="featurde_book_tag">
-                            <h2>Featured Books</h2>
-                            <p class="writer">John Deo</p>
-                            <div class="categories">Thriller, Horror, Romance</div>
-                            <p class="book_price">$25.50<sub><del>$28.60</del></sub></p>
-                            <a href="#" class="f_btn">Learn More</a>
-                        </div>               
-                    </div>
-                    <div class="featured_book_card1">
-                        <div class="featurde_book_img">
-                            <img src="Image/book_4.jpg">
-                        </div>
-                        <div class="featurde_book_tag">
-                            <h2>Featured Books</h2>
-                            <p class="writer">John Deo</p>
-                            <div class="categories">Thriller, Horror, Romance</div>
-                            <p class="book_price">$25.50<sub><del>$28.60</del></sub></p>
+                            <h2>Chúa nhẫn</h2>
+                            <p class="writer">J.R.R.Tolkien.</p>
+                            <div class="categories">Giả tưởng, Phiêu lưu</div>
+                            <p class="book_price">$18.50<sub><del>$28.60</del></sub></p>
                             <a href="#" class="f_btn">Learn More</a>
                         </div>               
                     </div>
                     <div class="featured_book_card1" id = "temp1">
                         <div class="featurde_book_img">
-                            <img src="Image/book_5.jpg">
+                            <img src="Image/doraemon.png">
                         </div>
                         <div class="featurde_book_tag">
-                            <h2>Featured Books</h2>
-                            <p class="writer">John Deo</p>
-                            <div class="categories">Thriller, Horror, Romance</div>
-                            <p class="book_price">$25.50<sub><del>$28.60</del></sub></p>
+                            <h2>Doraemon Vol.1</h2>
+                            <p class="writer">Fujiko F. Fujio</p>
+                            <div class="categories">Manga, Trẻ em</div>
+                            <p class="book_price">$2.50<sub><del>$5.60</del></sub></p>
                             <a href="#" class="f_btn">Learn More</a>
                         </div>               
                     </div>
@@ -503,63 +527,65 @@
             <div class="headline_listbook"></div>
             <div class="container_listbook">
                 <div class = "container_listbook_list1">
+                    <a href = "detail_item1.html">
+                        <div class="featured_book_card1">
+                            <div class="featurde_book_img">
+                                <img src="Image/songmon.png">
+                            </div>
+                            <div class="featurde_book_tag">
+                                <h2>Sống mòn</h2>
+                                <p class="writer">Nam Cao</p>
+                                <div class="categories">Tiểu thuyết</div>
+                                <p class="book_price">$10.50<sub><del>$28.60</del></sub></p>
+                                <a href="#" class="f_btn">Learn More</a>
+                            </div>               
+                        </div>
+                    </a>
                     <div class="featured_book_card1">
                         <div class="featurde_book_img">
-                            <img src="Image/book_1.jpg">
+                            <img src="Image/sodo.png">
                         </div>
                         <div class="featurde_book_tag">
-                            <h2>Featured Books</h2>
-                            <p class="writer">John Deo</p>
-                            <div class="categories">Thriller, Horror, Romance</div>
-                            <p class="book_price">$25.50<sub><del>$28.60</del></sub></p>
+                            <h2>Số đỏ</h2>
+                            <p class="writer">Vũ Trọng Phụng</p>
+                            <div class="categories">Tiểu thuyết</div>
+                            <p class="book_price">$8.50<sub><del>$28.60</del></sub></p>
                             <a href="#" class="f_btn">Learn More</a>
                         </div>               
                     </div>
                     <div class="featured_book_card1">
                         <div class="featurde_book_img">
-                            <img src="Image/book_2.jpg">
+                            <img src="Image/conan.png">
                         </div>
                         <div class="featurde_book_tag">
-                            <h2>Featured Books</h2>
-                            <p class="writer">John Deo</p>
-                            <div class="categories">Thriller, Horror, Romance</div>
-                            <p class="book_price">$25.50<sub><del>$28.60</del></sub></p>
+                            <h2>Conan 102</h2>
+                            <p class="writer">Gosho Aoyama</p>
+                            <div class="categories">Manga, Trinh thám</div>
+                            <p class="book_price">$1.50<sub><del>$2.60</del></sub></p>
                             <a href="#" class="f_btn">Learn More</a>
                         </div>               
                     </div>
                     <div class="featured_book_card1">
                         <div class="featurde_book_img">
-                            <img src="Image/book_3.jpg">
+                            <img src="Image/dnt.png">
                         </div>
                         <div class="featurde_book_tag">
-                            <h2>Featured Books</h2>
-                            <p class="writer">John Deo</p>
-                            <div class="categories">Thriller, Horror, Romance</div>
-                            <p class="book_price">$25.50<sub><del>$28.60</del></sub></p>
-                            <a href="#" class="f_btn">Learn More</a>
-                        </div>               
-                    </div>
-                    <div class="featured_book_card1">
-                        <div class="featurde_book_img">
-                            <img src="Image/book_4.jpg">
-                        </div>
-                        <div class="featurde_book_tag">
-                            <h2>Featured Books</h2>
-                            <p class="writer">John Deo</p>
-                            <div class="categories">Thriller, Horror, Romance</div>
-                            <p class="book_price">$25.50<sub><del>$28.60</del></sub></p>
+                            <h2>Đắc nhân tâm</h2>
+                            <p class="writer">Dale Carnegie</p>
+                            <div class="categories">Văn học</div>
+                            <p class="book_price">$8.50<sub><del>$18.60</del></sub></p>
                             <a href="#" class="f_btn">Learn More</a>
                         </div>               
                     </div>
                     <div class="featured_book_card1" id = "temp1">
                         <div class="featurde_book_img">
-                            <img src="Image/book_5.jpg">
+                            <img src="Image/ngk.png">
                         </div>
                         <div class="featurde_book_tag">
-                            <h2>Featured Books</h2>
-                            <p class="writer">John Deo</p>
-                            <div class="categories">Thriller, Horror, Romance</div>
-                            <p class="book_price">$25.50<sub><del>$28.60</del></sub></p>
+                            <h2>Nhà giả kim</h2>
+                            <p class="writer">Paulo Coelho</p>
+                            <div class="categories">Văn học</div>
+                            <p class="book_price">$2.50<sub><del>$5.60</del></sub></p>
                             <a href="#" class="f_btn">Learn More</a>
                         </div>               
                     </div>
@@ -575,7 +601,7 @@
             <div class="footer_bottom">
                 <span>Tien Lu Book Store | +84 0364038805</span>
             </div>
-        </footer>
-    </div>
+        </footer>          
+    </div>   
 </body>
 </html>
