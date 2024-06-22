@@ -8,13 +8,13 @@
     height: 85px;
     display: flex;
     background-color: white;
-    align-items: center; /* Căn giữa theo chiều dọc */
+    align-items: center; 
     justify-content: space-between; /* Đẩy các phần tử về hai bên của header */
-    padding: 0 20px; /* Thêm khoảng cách hai bên */
+    padding: 0 20px; 
     border-bottom: 1px solid black;
-    position: fixed; /* Đảm bảo header luôn ở trên đầu */
-    top: 0; /* Đặt header ở phía trên cùng */
-    left: 0; /* Đặt header ở phía bên trái */
+    position: fixed; 
+    top: 0; 
+    left: 0; 
     z-index: 1000; /* Đảm bảo header nằm trên các phần tử khác */
 }
 .header__navbar {
@@ -198,12 +198,12 @@
     position: relative;
     top: 31px;
     font-size: 25px;
-    transition: transform 0.3s ease, color 0.3s ease; /* Add color transition for smooth color change */
-    will-change: transform; /* Optimize for transform */
+    transition: transform 0.3s ease, color 0.3s ease; 
+    will-change: transform;
 }
 .container_sales_top_right span:hover {
     color: orange;
-    transform: scale(1.2); /* Phóng to chữ khi hover */
+    transform: scale(1.2); 
 }
 
 /*Books*/
@@ -213,7 +213,7 @@
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    overflow: hidden;
+    overflow: hidden; /* Ẩn bất kì nội dung nào vượt quá container */
     overflow-x: scroll;
     font-family: var(--font-nomal);
 }
@@ -267,10 +267,10 @@
 }
 
 .featured_book_card .featurde_book_tag .f_btn{
-    padding: 8px 20px;
+    padding: 2px 20px;
     border: 2px solid #089da1;
     text-decoration: none;
-    color: #000;
+    color: #000;   
 }
 
 ::-webkit-scrollbar{

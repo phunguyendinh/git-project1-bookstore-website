@@ -9,16 +9,16 @@ function handleNumberChange(action) {
   }
 }
 
-let selectedButton = null;
-function changeButtonStyle(button) {
-  if (selectedButton === button) {
-    button.classList.remove("clicked");
-    selectedButton = null;
-  } else {
-    if (selectedButton) {
-      selectedButton.classList.remove("clicked");
-    }
-    button.classList.add("clicked");
-    selectedButton = button;
-  }
-}
+// let selectedButton = null;
+// function changeButtonStyle(button) {
+//   if (selectedButton === button) {
+//     button.classList.remove("clicked");
+//     selectedButton = null;
+//   } else {
+//     if (selectedButton) {
+//       selectedButton.classList.remove("clicked");
+//     }
+//     button.classList.add("clicked");
+//     selectedButton = button;
+//   }
+// }

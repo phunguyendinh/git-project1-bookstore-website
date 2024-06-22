@@ -41,7 +41,7 @@
             });
 
             $(".order-action").click(function() {
-                var index = $(this).closest(".order-item").index(); // Lấy chỉ số của phần tử cha .order-item
+                var index = $(this).find(".order-item").index();
                 order.splice(index, 1); // Xóa phần tử tương ứng khỏi mảng order
 
                 // Xóa phần tử trong giao diện

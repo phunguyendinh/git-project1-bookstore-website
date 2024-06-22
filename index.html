@@ -15,7 +15,49 @@
             data = localStorage.getItem("order");
             order = JSON.parse(data);
 
-            $(".header__navbar-item span").text("("+ order.length+")");           
+            $(".header__navbar-item span").text("("+ order.length+")");     
+
+            var $hourBox = $('.container_sales_top_countdown .hour');
+            var $minuteBox = $('.container_sales_top_countdown .minute');
+            var $secondBox = $('.container_sales_top_countdown .second');
+
+            // Tính thời gian bắt đầu và thời gian kết thúc (1 giờ sau)
+            var startTime = new Date();
+            var endTime = new Date(startTime.getTime() + 60 * 60 * 1000);
+
+            // Cập nhật hộp thời gian ban đầu
+            updateCountdown();
+
+            // Thiết lập lặp lại mỗi giây
+            var countdownInterval = setInterval(updateCountdown, 1000);
+
+            // Hàm cập nhật hiển thị đếm ngược
+            function updateCountdown() {
+                var currentTime = new Date();
+                var remainingTime = endTime - currentTime;
+
+                // Kiểm tra xem thời gian còn lại đã hết hay chưa
+                if (remainingTime <= 0) {
+                clearInterval(countdownInterval); // Dừng lặp lại
+                return; // Thoát khỏi hàm
+                }
+
+                // Tính giờ, phút, giây còn lại
+                var totalSeconds = Math.floor(remainingTime / 1000);
+                var hours = Math.floor(totalSeconds / 3600);
+                var minutes = Math.floor((totalSeconds % 3600) / 60);
+                var seconds = totalSeconds % 60;
+
+                // Cập nhật nội dung của các hộp thời gian trên trang web
+                $hourBox.text(padNumber(hours));
+                $minuteBox.text(padNumber(minutes));
+                $secondBox.text(padNumber(seconds));
+            }
+
+            // Hàm đệm số để hiển thị số có 2 chữ số
+            function padNumber(number) {
+                return number.toString().padStart(2, '0');
+            }  
         });
     </script>
 </head>
@@ -64,7 +106,7 @@
                     <div class="container_sales_top_countdown">
                         <div class="box hour">00</div>
                         <span>:</span>
-                        <div class="box nimute">00</div>
+                        <div class="box minute">00</div>
                         <span>:</span>
                         <div class="box second">00</div>
                     </div>

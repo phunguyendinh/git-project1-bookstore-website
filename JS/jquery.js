@@ -3,7 +3,7 @@ $(document).ready(function () {
   const images = ["Image/image1.png", "Image/image2.png", "Image/image3.png"];
   let currentIndex = 0;
   const totalImages = images.length;
-  const intervalTime = 2500; // Thời gian trong mili giây
+  const intervalTime = 2500; 
   const fadeDuration = 1000; // Thời gian hiệu ứng fade trong mili giây
 
   function showImage(index) {
